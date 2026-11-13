@@ -1,7 +1,14 @@
 ---
 title: Inici
+homepage: true
 description: Un espai per a transformar les teues idees en projectes reals des de la Formació Professional.
 ---
+
+<div class="home-identity wrap" markdown="1">
+
+![Justhub Garage | Llança't](assets/justhub-garage.png){.home-logo width="1080" height="209" fetchpriority="high"}
+
+</div>
 
 <section class="hero wrap" markdown="1">
 <div class="hero-copy" markdown="1">
