@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block extrahead %}
+  <meta name="theme-color" content="#63329a">
+{% endblock %}
+{% block header %}
+<a class="skip-link" href="#contingut">Salta al contingut</a>
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a class="brand" href="{{ '' | url }}" aria-label="Justhub Garage | Llança't, inici"><img src="{{ config.theme.logo | url }}" alt="Justhub Garage | Llança't" width="1080" height="209"></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menú <span aria-hidden="true">☰</span></button>
+    <nav id="navigation" aria-label="Navegació principal">
+      {% for item in nav.items %}
+      <a href="{{ item.url | url }}"{% if item.active %} aria-current="page"{% endif %}{% if loop.last %} class="nav-cta"{% endif %}>{{ item.title }}{% if loop.last %} <span aria-hidden="true">↗</span>{% endif %}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+{% endblock %}
+{% block tabs %}{% endblock %}
+{% block site_nav %}{% endblock %}
+{% block container %}
+<div class="md-content" data-md-component="content">
+  <article class="site-content" id="contingut">{{ page.content | safe }}</article>
+</div>
+{% endblock %}
+{% block footer %}
+<footer>
+  <div class="wrap footer-main">
+    <div><img src="{{ config.theme.logo | url }}" alt="Justhub Garage | Llança't" width="1080" height="209" loading="lazy"><p>Idees que naixen a l'FP.<br>Projectes que creixen a la Valldigna.</p></div>
+    <div><strong>Ens trobaràs al Jaume</strong><p>IES Jaume II El Just<br>Tavernes de la Valldigna</p><a href="https://portal.edu.gva.es/iesjaumeeljust/">Web de l'institut ↗</a></div>
+    <div><strong>Formem part de Llança't</strong><p>Un programa de la Generalitat Valenciana<br>cofinançat pel Fons Social Europeu.</p><a href="https://portal.edu.gva.es/iesjaumeeljust/justhub-garage/">El projecte a PortalEdu ↗</a></div>
+  </div>
+  <div class="wrap footer-bottom"><span>Justhub Garage · IES Jaume II El Just</span><a href="#">Torna a dalt ↑</a></div>
+</footer>
+{% endblock %}
+
+{# The custom header does not use the documentation theme's interactive widgets. #}
+{% block scripts %}
+  {% for script in config.extra_javascript %}
+    {{ script | script_tag }}
+  {% endfor %}
+{% endblock %}
